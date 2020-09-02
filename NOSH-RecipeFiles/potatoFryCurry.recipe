@@ -1,0 +1,41 @@
+vegmap poha=5,onion=3,peanut=2,greenchilli=4,potato=1
+stove start 
+wait 8 seconds      
+oil dispense 25 ml
+wait 10 seconds  
+stove heat 3
+stir position
+spice cumin dispense 1 spoon
+wait 5 seconds
+spice cumin dispense 1 spoon
+wait 10 seconds
+vegetable potato dispense
+wait 5 seconds      
+stir saute 1 times 
+wait 20 seconds 
+spice salt dispense
+wait 5 seconds
+spice salt dispense
+wait 5 seconds
+spice turmeric dispense 1 spoon 
+wait 5 seconds
+spice turmeric dispense 1 spoon 
+stir saute 2 times 
+wait 60 seconds 
+stir mix 1 times 
+wait 60 seconds 
+stir mix 1 times 
+wait 60 seconds 
+stir mix 1 times 
+wait 30 seconds 
+stir mix 1 times 
+wait 30 seconds
+stir mix 1 times 
+wait 20 seconds
+stir mix 1 times 
+wait 20 seconds
+stir mix 1 times 
+wait 5 seconds
+stir rest
+wait 5 seconds
+stove stop 

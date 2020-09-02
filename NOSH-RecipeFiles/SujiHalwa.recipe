@@ -1,0 +1,28 @@
+vegmap ghee=3,rava=1,sugar=2,dryFruits=4,greenchilli=5,potato=6 
+stove start 
+wait 8 seconds      
+vegetable ghee dispense #ghee_20gm
+stir position
+delay 10 seconds
+stir mix 1 times
+stove heat 2
+vegetable rava dispense #rava_70gms
+stir mix 14 times  # 6 minutes 
+vegetable sugar dispense #sugar_85gms Powder 0.8gm 
+stir mix 3 times  # 1.5 minute 
+stir mix_through_start
+delay 10 seconds
+stove heat 4
+delay 10 seconds
+water dispense 220 ml
+wait 15 seconds
+water dispense 180 ml 
+stir mix_through_stop
+stir mix 2 times
+wait 10 seconds
+vegetable dryFruits dispense # dry fruits
+stir mix 1 times
+wait 10 seconds
+stir mix 1 times
+stove stop
+stir rest

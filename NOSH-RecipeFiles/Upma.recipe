@@ -1,0 +1,56 @@
+#rava = 70gm, Onions = 50gm, urad_dal=5gm ,chana_dal=5gm ,ginger=7 , chilli_horizontal=5 , carrot = 20, peas=20
+# (rava, ginger-chilli-curryleaves-uraddal, onion, chanadal, ghee, carrot-peas)
+#vegmap rava=1,ginger=2,onion=3,dals=4,ghee=5,veg=6
+vegmap rava=2,ginger=3,onion=4,veg=5
+stove start 
+wait 50 seconds      
+oil dispense 25 ml 
+stir position
+wait 25 seconds
+stove heat 2
+#spice position
+spice mustard dispense
+#spice rest
+##vegetable dals dispense
+##stir saute 3 times
+stove heat 3
+vegetable onion dispense 
+stir saute 1 times 
+wait 5 seconds
+stir saute 1 times 
+wait 5 seconds  
+vegetable ginger dispense
+stir saute 1 times
+vegetable veg dispense
+stove heat 4
+stir saute 2 times
+wait 30 seconds
+#spice position
+spice salt dispense
+spice salt dispense
+spice rest 
+stir saute 2 times
+wait 10 seconds
+stir saute 2 times
+wait 10 seconds
+water dispense 280 ml 
+wait 15 seconds 
+water dispense 260 ml 
+stir mix 1 times 
+#vegetable ghee dispense
+#spice position
+spice salt dispense
+spice salt dispense
+spice rest
+##wait 110 seconds
+wait 50 seconds
+stir mix 1 time
+wait 10 seconds
+vegetable rava dispense #rava_70gms
+wait 30 seconds
+stir mix_through_stop 
+stir mix 4 times
+stove heat 2
+stir mix 2 times
+stir rest
+stove stop

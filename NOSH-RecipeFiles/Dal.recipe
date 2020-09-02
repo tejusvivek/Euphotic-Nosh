@@ -1,0 +1,80 @@
+#onion =25, tomato = 40gms,dal=40gms, ginger paste = 5.5gms, redchilli=1, cumin=1.5gms, coriander powder=0.8gms, garam masala=0.8gms
+vegmap dal=1,onion=2,ginger=3,coriander=4,cumin=5,tomato=6
+stove start
+wait 40 seconds
+oil dispense 100 ml
+wait 30 seconds
+stove heat 2
+stir position
+vegetable cumin dispense
+stir saute 1 times
+wait 5 seconds
+vegetable ginger dispense
+stir saute 1 times
+wait 10 seconds
+stir saute 1 times
+vegetable onion dispense
+stove heat 3
+stir saute 2 times
+wait 20 seconds
+stir saute 1 times
+wait 15 seconds
+vegetable tomato dispense
+stir saute 1 times
+wait 5 seconds
+spice position
+spice salt dispense
+spice salt dispense
+spice turmeric dispense
+spice rest
+stir saute 2 times
+wait 15 seconds
+vegetable dal dispense
+stir mix 1 times
+water dispense 350 ml
+wait 10 seconds
+water dispense 350 ml
+wait 10 seconds
+water dispense 300 ml
+stove heat 6
+stir mix 2 times
+wait 60 seconds
+stove heat 4
+wait 60 seconds
+stir mix 1 times
+wait 120 seconds
+stir mix 1 times
+wait 120 seconds
+stove heat 3
+stir mix 1 times
+wait 120 seconds
+stir mix 1 times
+wait 120 seconds
+stir mix 1 times
+wait 120 seconds
+stir mix 1 times
+wait 120 seconds
+stir mix 1 times
+wait 120 seconds
+stir mix 1 times
+wait 120 seconds
+stir mix 1 times
+wait 120 seconds
+stir mix 1 times
+wait 120 seconds
+stir mix 1 times
+wait 120 seconds
+stir mix 1 times
+wait 120 seconds
+stir mix 1 times
+wait 120 seconds
+stir mix 1 times
+wait 120 seconds
+stir mix 1 times
+wait 5 seconds
+stove heat 2
+vegetable coriander dispense
+stir mix 2 times
+wait 10 seconds
+stir rest
+stove stop

@@ -1,0 +1,65 @@
+#rava = 70gm, Onions = 50gm, urad_dal=5gm ,chana_dal=5gm ,ginger=5 , chilli_horizontal=5 , carrot = 30, tomato=40
+vegmap rice=6,tomato=1,onion=3,ginger=4,dryspice=2,potato=5
+#stove start 
+$wait 25 seconds      
+#oil dispense 40 ml 
+#stir position
+#wait 30 seconds
+#stove heat 2
+#spice position
+#spice mustard dispense
+#spice mustard dispense
+#spice rest
+#vegetable dryspice dispense 
+#stir saute 2 times
+#stove heat 3
+#vegetable onion dispense # onion=  
+#stir saute 1 times 
+#wait 20 seconds
+#stir saute 1 times 
+#wait 20 seconds  
+#stir saute 1 times
+#wait 15 seconds 
+#vegetable ginger dispense # green_chilli = , ginger = 
+#stir saute 1 times
+#stove heat 4 
+#vegetable potato dispense
+#stir saute 2 times
+#wait 10 seconds
+#spice position
+#spice salt dispense
+#spice salt dispense
+#spice salt dispense
+#spice salt dispense
+#spice turmeric dispense
+#spice turmeric dispense
+#spice chilliPowder dispense
+#spice chilliPowder dispense
+#spice rest 
+#stir saute 2 times
+#wait 10 seconds
+#stir saute 2 times 
+#wait 10 seconds
+#vegetable rice dispense 
+#stir mix 1 times
+#wait 10 seconds
+water dispense 300 ml 
+wait 10 seconds 
+#water dispense 300 ml
+#wait 10 seconds
+#water dispense 200 ml
+#stir mix 2 times
+#wait 300 seconds  # 5 minutes 
+#vegetable tomato dispense
+#stir mix 2 times 
+#wait 300 seconds  # 5 minutes   
+#stir mix 2 times 
+#stove heat 3
+#wait 300 seconds # 5 minutes 
+stir mix 2 times 
+wait 300 seconds # 5 minutes
+stir mix 2 times 
+wait 300 seconds # 5 minutes 
+stir mix 2 times 
+stir rest
+stove stop

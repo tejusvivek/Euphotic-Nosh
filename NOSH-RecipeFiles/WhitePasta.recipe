@@ -1,0 +1,49 @@
+#pasta = 20gm, corn = ,capsicum=18 ,brocolli=, maida = 4.5gms, milkPowder = 20gms , butter = , spices =0.8(o)+0.2(c)+0.5(p)gms , 
+vegmap pasta=1,spices=2,milkPowder=3,maida=4,butter=5,veg=6
+stove start 
+wait 40 seconds
+vegetable butter dispense 
+stir position
+wait 10 seconds
+stove heat 1
+stir mix_through_start
+wait 10 seconds
+vegetable maida dispense # 
+wait 30 seconds
+stir mix_through_stop 
+wait 5 seconds
+stir saute 2 times 
+wait 10 seconds
+stir saute 1 times 
+vegetable veg dispense
+stove heat 3
+stir saute 3 times
+wait 15 seconds
+stove heat 1
+stir saute 2 times
+wait 10 seconds
+water dispense 100 ml 
+stove heat 1
+stir mix_through_start
+wait 10 seconds
+vegetable milkPowder dispense
+wait 10 seconds
+water dispense 100 ml
+wait 20 seconds 
+stir mix_through_stop 
+vegetable spices dispense
+stove heat 3
+spice position
+spice salt dispense 
+spice salt dispense 
+spice rest
+wait 20 seconds
+stir mix 3 times 
+wait 20 seconds
+vegetable pasta dispense
+stir mix 1 times 
+wait 10 seconds 
+stove heat 2
+stir mix 2 times 
+stove stop 
+stir rest 

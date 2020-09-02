@@ -1,0 +1,63 @@
+#chole=150gms, tomato=70gms, onion=50gms, cumin=0.6gms, chole masala=4.3gms,garlic=2gms
+vegmap chole=1,tomato=2,onion=3,spices=4,masala=5,coriander=6
+stove start 
+wait 40 seconds      
+oil dispense 40 ml
+wait 60 seconds 
+stir position 
+stove heat 2
+vegetable spices dispense
+stir saute 2 times
+wait 10 seconds
+vegetable onion dispense  
+stove heat 3
+stir saute 2 times
+wait 30 seconds
+stir saute 2 times
+wait 20 seconds
+vegetable masala dispense
+stove heat 2
+stir saute 1 times
+wait 50 seconds
+stir saute 1 times
+vegetable tomato dispense 
+stir mix_first
+spice position 
+spice salt dispense 1 spoon
+spice salt dispense 1 spoon
+spice salt dispense 1 spoon
+spice salt dispense 1 spoon
+spice turmeric dispense
+spice turmeric dispense
+spice chilliPowder dispense
+spice chilliPowder dispense
+spice rest
+stove heat 4 
+stir mix 3 times
+wait 40 seconds # 1
+stir mix 3 times
+wait 5 seconds
+stir crush 1 times
+stir mix 2 times
+wait 40 seconds  #2
+water dispense 100 ml
+stir crush 1 times
+stir mix 1 times
+wait 20 seconds #3
+vegetable chole dispense
+stir mix 2 times
+stir crush 1 times
+water dispense 400 ml
+stir mix 3 times
+wait 150 seconds
+stir mix 3 times
+wait 150 seconds
+stir crush 1 times
+stir mix 1 times
+wait 50 seconds
+stir crush 1 times
+stir mix 1 times
+#vegetable coriander dispense
+stir mix 2 times
+stir rest
+stove stop

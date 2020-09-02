@@ -1,0 +1,44 @@
+vegmap cauliflower=1,potato=2
+stir mix 5 times
+stir rest
+stove stop
+wait 1100 seconds
+stove start 
+wait 8 seconds      
+oil dispense 35 ml
+wait 60 seconds      
+stove heat 3
+spice position 
+spice mustard dispense 1 spoon
+spice mustard dispense 1 spoon
+wait 20 seconds
+spice turmeric dispense 2 spoon
+spice rest
+stir position 
+vegetable potato dispense
+stove heat 4
+stir mix 3 times
+wait 15 seconds 
+vegetable cauliflower dispense
+stir mix 2 times 
+wait 20 seconds 
+stir rest 
+spice position  
+spice salt dispense
+spice salt dispense
+wait 30 seconds
+#spice cuminPowder dispense 1 spoon
+spice chilliPowder dispense 2 spoon 
+spice rest 
+stir position
+stir mix 2 times 
+wait 60 seconds 
+stove heat 3 
+stir mix 1 times 
+wait 60 seconds 
+stir mix 1 times 
+wait 60 seconds 
+stir mix 1 times 
+wait 30 seconds 
+stir rest
+stove stop 

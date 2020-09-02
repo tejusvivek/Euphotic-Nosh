@@ -1,0 +1,58 @@
+#cabbage 150 gms, tomato=36gms, cumin 0.8 gms,cumin powder=0.8gms
+vegmap cabbage=1,greenchilli=2,tomato=3,cumin=4
+stove start
+wait 60 seconds
+oil dispense 25 ml
+wait 30 seconds
+stir position
+spice position
+spice mustard dispense
+spice rest
+stove heat 2
+wait 10 seconds
+vegetable cumin dispense
+wait 20 seconds
+vegetable greenchilli dispense
+stir saute 2 times
+vegetable tomato dispense
+stove heat 3
+stir saute 1 times
+spice position
+spice salt dispense
+spice salt dispense
+spice salt dispense
+spice turmeric dispense
+spice turmeric dispense
+spice chilliPowder dispense
+stir saute 2 times
+wait 15 seconds
+stove heat 2
+stir saute 2 times
+wait 10 seconds
+stove heat 1
+stir saute 1 times
+wait 2 seconds 
+vegetable cabbage dispense
+stove heat 3
+stir mix 1 times
+water dispense 480 ml
+wait 10 seconds
+stir mix 3 times
+wait 100 seconds
+stir mix 3 times
+wait 100 seconds
+stir mix 2 times
+wait 100 seconds
+stir mix 2 times
+wait 10 seconds
+stir mix 3 times
+wait 100 seconds
+stir mix 3 times
+wait 100 seconds
+stir mix 2 times
+wait 100 seconds
+stir mix 2 times
+wait 10 seconds
+stir rest
+wait 5 seconds
+stove stop

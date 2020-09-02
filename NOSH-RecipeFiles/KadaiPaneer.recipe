@@ -1,0 +1,93 @@
+#ingredients : Veg    : (dried chillies:2, coriander seeds: 2gm),onion: 100gm, tomatoes:180, (onions,capsicum):80gms , gingergarlic 2 spoons ,greenchilli 2nos, paneer:100gm  
+#ingredients : Spices : cumin seeds, kadai masala, salt, chilli powder 
+vegmap tomato=1,onion=2,capscicum=3,ginger=4,corianderSeeds=5,paneer=6
+stove start 
+#stove heat 4
+#wait 8 seconds      
+#oil dispense 45 ml
+#wait 60 seconds 
+stir position 
+#stove heat 1
+#spice position 
+#spice cumin dispense 1 spoon
+#spice cumin dispense 1 spoon
+#spice rest
+#stir saute 1 times
+#vegetable corianderSeeds dispense #coriander seeds 
+#stir saute 1 times
+#wait 10 seconds
+#vegetable onion dispense  
+##stove heat 4
+#stir saute 2 times
+#wait 20 seconds
+#vegetable ginger dispense  
+#wait 15 seconds
+#stir saute 2 times
+#wait 30 seconds
+#stir saute 3 times
+#wait 5 seconds
+#stove heat 5 
+#vegetable tomato dispense #vegetable+puree+paneer masala
+#stir mix 1 time
+#spice position 
+#spice salt dispense 1 spoon
+#spice salt dispense 1 spoon
+#spice rest
+#stir mix 1 time
+#wait 30 seconds # 1
+#stove heat 4 
+spice position 
+spice salt dispense 1 spoon
+spice salt dispense 1 spoon
+spice turmeric dispense 1 spoon
+spice turmeric dispense 1 spoon
+#spice garamMasala dispense 1 spoon
+#spice garamMasala dispense 1 spoon
+#spice garamMasala dispense 1 spoon
+#spice garamMasala dispense 1 spoon
+#spice garamMasala dispense 1 spoon
+spice chilliPowder dispense 1 spoon
+spice chilliPowder dispense 1 spoon
+spice chilliPowder dispense 1 spoon
+spice rest
+stir mix 1 time
+stir crush
+stir mix 2 times
+water dispense 50 ml
+stir mix 1 time
+stir crush
+wait 5 seconds #5
+stir mix 1 time
+stove heat 3 
+wait 10 seconds #6
+water dispense 50 ml
+stir mix 1 time
+wait 10 seconds #8 
+stir mix 1 time
+stir crush
+stir mix 1 time
+vegetable capscicum dispense
+stove heat 5
+stir mix 1 time 
+wait 15 seconds 
+stir mix 1 time
+wait 15 seconds 
+stir mix 1 time
+wait 10 seconds 
+stir mix 1 time
+wait 10 seconds
+stir mix 1 time
+water dispense 100 ml #80
+stir mix 1 times
+wait 10 seconds
+vegetable paneer dispense #Paaneer
+wait 5 seconds 
+stir mix 1 times
+water dispense 150 ml #80
+stir mix 2 times
+wait 15 seconds
+stir mix 1 times
+wait 10 second 
+stove stop 
+stir rest
+

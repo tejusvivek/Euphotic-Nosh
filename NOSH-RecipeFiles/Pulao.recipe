@@ -1,0 +1,58 @@
+#rice = 80gm, Onions = 60gm, chilli_horizontal=5 , carrot = 20, peas=20, ghee= 2 spoons
+# (rice, bayleaves-cadamom-cloves-star, onion-greenchilli, potato(30)-capcicum(20)-beans(20)-carrot(20)-peas(20),ghee(2spoons), cashew(10 gm))
+vegmap rice=6,dryMasala=5,onion=4,ghee=2,cashew=3,vegetables=1
+#stove start 
+#wait 10 seconds      
+#oil dispense 50 ml 
+#vegetable ghee dispense
+#stir position
+#wait 25 seconds
+#stove heat 2
+#spice position
+##spice cumin dispense
+#spice cumin dispense
+#spice rest
+#vegetable dryMasala dispense
+#stir saute 1 times
+#wait 15 seconds
+#vegetable cashew dispense
+#stir saute 1 times
+stove heat 3
+vegetable onion dispense 
+stir saute 1 times 
+wait 20 seconds
+stir saute 1 times 
+wait 20 seconds  
+###stir saute 1 times
+###wait 15 seconds 
+stove heat 4
+vegetable vegetables dispense
+stir mix_first 
+wait 30 seconds
+spice position
+spice salt dispense
+spice salt dispense
+spice rest 
+stir saute 2 times
+wait 30 seconds
+stir saute 2 times
+wait 30 seconds
+#spice position
+#spice salt dispense
+#spice salt dispense
+#spice salt dispense
+#spice rest 
+#stir saute 2 times
+#wait 30 seconds
+#stir saute 1 times
+vegetable rice dispense #rava_70gms
+stir mix_first 
+wait 30 seconds
+stir mix 2 times
+wait 60 seconds 
+stove heat 2
+stir mix 2 times
+wait 20 seconds
+stir mix_first
+stir rest
+stove stop

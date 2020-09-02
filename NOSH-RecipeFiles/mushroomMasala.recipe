@@ -1,0 +1,88 @@
+#stove start 
+#wait 8 seconds      
+#oil dispense 15 ml
+#wait 30 seconds 
+#stove heat 3
+spice position 
+spice cumin dispense 1 spoon
+spice rest
+#vegetable rava dispense 
+#vegetable onion dispense
+#vegetable curryleaves dispense 
+#vegetable empty0 dispense 
+#vegetable empty1 dispense 
+wait 5 seconds
+#stir position 
+#stir saute 1 times
+#wait 30 seconds
+#stir saute 1 times
+#wait 20 seconds
+#paste gingerGarlic 1 spoon
+#stir saute 1 times
+####paste chilliPaste 1 spoon
+#wait 10 seconds 
+#stir saute 1 times
+#stir rest
+#stove heat 5 
+#vegetable tomato dispense 
+spice position 
+spice salt dispense 1 spoon
+#spice salt dispense 1 spoon
+#spice salt dispense 1 spoon
+spice rest
+#wait 5 seconds
+#stir position 
+#stir mix 1 time
+#stir rest
+#wait 40 seconds # 1
+#stove heat 4 
+spice position 
+spice turmeric dispense 1 spoon
+spice garamMasala dispense 1 spoon
+#spice garamMasala dispense 1 spoon
+#spice cuminPowder dispense 1 spoon  #cooriander Powder
+spice cuminPowder dispense 1 spoon  #cooriander Powder
+#spice cuminPowder dispense 1 spoon  #cooriander Powder
+#spice chilliPowder dispense 1 spoon
+spice chilliPowder dispense 1 spoon
+spice rest
+#stir position
+#stir mix 1 time
+#wait 30 seconds  #2
+#stir mix 1 time
+#wait 30 seconds #3
+#water dispense 20 ml
+#stir mix 1 time
+#wait 30 seconds #4
+#stir mix 1 time
+#wait 25 seconds #5
+#stir mix 1 time
+#wait 25 seconds #6
+#water dispense 40 ml
+#stir mix 1 time
+#wait 30 seconds #7 
+#stir mix 1 time
+#wait 25 seconds #8 
+#stir mix 1 time
+#wait 25 seconds #9 
+#water dispense 30 ml
+#stir mix 1 time
+#wait 30 seconds #10
+#stir mix 1 time
+#wait 25 seconds #11
+#water dispense 30 ml
+#stir mix 1 time
+#stir rest
+#vegetable potato dispense # add little wet mushrooms to avoid the water   # mushrooms
+#water dispense 30 ml
+#wait 5 seconds 
+#stir position 
+#stir mix 2 times
+#wait 30 seconds
+#stir mix 2 times
+#wait 30 seconds
+#stir mix 2 times
+#wait 20 seconds
+#stir mix 2 times
+#stove stop 
+#stir rest

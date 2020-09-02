@@ -1,0 +1,66 @@
+vegmap poha=6,coriander=1,onion=3,peanut=2,greenchilli=4,potato=5 
+#stove start
+#stove heat 4
+#wait 5 seconds      
+#oil dispense 30 ml #30before
+#stir position 
+#wait 20 seconds
+#stove heat 3      
+#spice position 
+#spice mustard dispense 1 spoon
+#spice mustard dispense 1 spoon
+#spice rest
+#wait 10 seconds #15 before
+#vegetable peanut dispense
+#stir saute 1 times
+#wait 5 seconds
+#vegetable greenchilli dispense
+#stir saute 1 times
+#vegetable onion dispense
+#stir saute 1 times
+#wait 20 seconds
+#stir saute 1 times
+#wait 15 seconds
+##stir saute 1 times #extra
+##wait 15 seconds #extra
+#stove heat 4
+vegetable potato dispense
+stir mix_first 1 times #additional
+stir saute 1 times
+spice position  
+spice salt dispense
+spice salt dispense
+spice salt dispense
+spice salt dispense
+spice rest 
+wait 5 seconds
+stir saute 1 times
+wait 10 seconds
+spice position  
+spice salt dispense
+spice salt dispense
+spice salt dispense
+spice turmeric dispense 1 spoon #turmeric
+spice turmeric dispense 1 spoon #turmeric
+#spice turmeric dispense 1 spoon
+spice rest 
+stir mix 1 times
+wait 20 seconds 
+stir mix 1 times 
+wait 10 seconds
+stir mix 1 times 
+wait 10 seconds
+vegetable poha dispense
+stir mix_first 1 times #additional
+stir mix 2 times 
+wait 30 seconds  
+stir mix 1 times 
+wait 20 seconds 
+stir mix 1 times 
+wait 10 seconds 
+vegetable coriander dispense
+stir mix_first 
+stir mix 1 times 
+stir mix_first 
+stir rest
+stove stop 
