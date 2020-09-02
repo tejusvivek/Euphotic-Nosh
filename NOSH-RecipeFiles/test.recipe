@@ -1,0 +1,40 @@
+vegmap 1=1,2=2,3=3,4=4,5=5
+stir position
+stir mix 5 times
+wait 5 seconds
+#stir rest
+#spice position
+#spice salt dispense
+#spice chilliPowder dispense
+#spice mustard dispense
+#spice turmeric dispense
+#spice garamMasala dispense
+#spice cumin dispense
+#spice rest
+#wait 5 seconds
+#water dispense 50 ml
+#oil dispense 10 ml
+#wait 5 seconds
+#stove start
+#wait 5 seconds
+#stove heat 6
+#wait 5 seconds
+#stove heat 2
+#wait 5 seconds
+#stove stop
+#stir position
+#wait 10 seconds
+#vegetable 1 dispense
+#wait 15 seconds
+#vegetable 2 dispense
+#wait 15 seconds
+#vegetable 3 dispense
+#wait 15 seconds
+#vegetable 4 dispense
+#wait 15 seconds
+#vegetable 5 dispense
+#wait 15 seconds
+#vegetable 6 dispense
+#wait 15 seconds
+#wait 5 seconds
+stir rest
