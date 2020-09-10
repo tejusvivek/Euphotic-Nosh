@@ -5,8 +5,9 @@ from kivymd.uix.gridlayout import MDGridLayout
 from kivymd.uix.stacklayout import MDStackLayout
 from kivymd.uix.taptargetview import MDTapTargetView
 
-from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelOneLine, MDExpansionPanelThreeLine, MDExpansionChevronRight
-
+from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelOneLine, MDExpansionPanelThreeLine, \
+    MDExpansionChevronRight
+from kivymd.uix.list import OneLineIconListItem, OneLineListItem
 from kivymd.uix.label import MDLabel
 from kivymd.utils.fitimage import FitImage
 from kivymd.theming import ThemableBehavior
@@ -14,6 +15,7 @@ from kivy.animation import Animation, AnimationTransition
 from kivymd.uix.behaviors import MagicBehavior
 from kivymd.uix.bottomsheet import MDListBottomSheet
 from kivymd.uix.snackbar import Snackbar
+from kivymd.uix.button import ButtonBehavior
 
 
 class MyImageWidget(FitImage, MagicBehavior):
@@ -24,10 +26,9 @@ class MyImageWidget(FitImage, MagicBehavior):
 
     def grow_widget(self):
         """Grow effect animation."""
-
         Animation.stop_all(self)
         (
-            Animation(scale_x=1.2, scale_y=1.2, t="out_circ", d=1.)
+            Animation(scale_x=1, scale_y=1, t="out_circ", d=0.5)
         ).start(self)
 
     def shrink_widget(self):
@@ -35,57 +36,66 @@ class MyImageWidget(FitImage, MagicBehavior):
 
         Animation.stop_all(self)
         (
-            Animation(scale_x=1.0, scale_y=1.0, t="out_circ", d=1.)
+            Animation(scale_x=0.9, scale_y=0.9, t="out_circ", d=0.5)
         ).start(self)
 
 
-class MyLabel(MDLabel):
-    def __init__(self, content, **kwargs):
-        super().__init__(**kwargs)
-        self.text = content
+class MyCardWidget(MDGridLayout):
 
-
-class MyCardWidget(MDGridLayout, HoverBehavior):
-
-    def __init__(self, header_text, content_text, image_path, **kwargs):
+    def __init__(self, header_text, image_path, **kwargs):
         super(MyCardWidget, self).__init__(**kwargs)
 
         self.header_text = header_text
-        self.content_text = content_text
         self.image_path = image_path
 
+        self.card_widget = MyCard(header_text=self.header_text,
+                                  image_source=image_path)
 
-        # initialize widgets
-
-        self.image_widget = MyImageWidget(image_path=self.image_path)
-        self.label_widget = MyLabel(id='label1', content=self.content_text)
-        self.snackbar_widget = Snackbar(text=self.content_text, padding="20dp", duration=1)
-
-        self.add_widget(self.image_widget)
-
-    def on_enter(self, *args):
-        '''The method will be called when the mouse cursor
-        is within the borders of the current widget.'''
-
-        self.image_widget.grow_widget()
-        self.snackbar_widget.show()
-
-    def on_leave(self, *args):
-        '''The method will be called when the mouse cursor goes beyond
-        the borders of the current widget.'''
-
-        self.image_widget.shrink_widget()
-
-    def tap_target_start(self):
-        if self.tap_target_view.state == "close":
-            self.tap_target_view.start()
-        else:
-            self.tap_target_view.stop()
+        self.add_widget(self.card_widget)
 
 
 class MyCardContent(MDBoxLayout):
 
     def __init__(self, content_text, **kwargs):
         super().__init__(**kwargs)
+        self.add_widget(OneLineListItem(text=content_text))
 
-        self.add_widget(MDLabel(text=content_text))
+
+class MyExpansionPanel(MDExpansionPanel):
+    def __init__(self, header_text, **kwargs):
+        self.panel_cls = MDExpansionPanelOneLine(text=header_text)
+        super().__init__(**kwargs)
+        self.on_open = self.panel_open
+        self.on_close = self.panel_close
+        self.id = 'card_expansion_panel'
+        self.content = MyCardContent(content_text='')
+        self.initial_height = self.height
+        self.increment = self.initial_height / 2
+        self.animation_duration = 0.2
+
+    def panel_open(self, *args):
+        Animation(height=(self.initial_height + self.increment),
+                  d=self.animation_duration).start(self)
+
+    def panel_close(self, *args):
+        Animation(height=self.initial_height,
+                  d=self.animation_duration).start(self)
+
+
+class MyCard(MDCard, MagicBehavior):
+    def __init__(self, header_text, image_source, **kwargs):
+        super().__init__(**kwargs)
+        self.id = 'card'
+        self.expansion_panel_widget = MyExpansionPanel(header_text=header_text)
+        self.image_widget = MyImageWidget(image_path=image_source)
+        self.ids.box.add_widget(self.image_widget)
+
+        self.add_widget(self.expansion_panel_widget)
+
+    def on_enter(self):
+        self.expansion_panel_widget.panel_open()
+        self.image_widget.shrink_widget()
+
+    def on_leave(self):
+        self.expansion_panel_widget.panel_close()
+        self.image_widget.grow_widget()

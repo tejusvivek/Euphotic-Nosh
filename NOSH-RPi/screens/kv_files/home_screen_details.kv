@@ -1,7 +1,49 @@
+#:include widgets/kv_files/my_card_details.kv
+
+<CookWidgetSocket>:
+
+<ReheatWidgetSocket>:
+
+<CleanWidgetSocket>:
+
+<TasteWidgetSocket>:
+
+<PowerWidgetSocket>:
+
+
 <HomeScreen>:
     name:'home_screen'
+    id: home_screen
 
     MDGridLayout:
         id: home_page_grid
         cols: 3
-        padding: dp(40), dp(40)
+
+        CookWidgetSocket:
+            id: cookwidgetsocket
+            size: 100,100
+            on_touch_down: root.manager.current = 'cook_screen'
+
+        ReheatWidgetSocket:
+            id: reheatwidgetsocket
+            size: 100,100
+            on_touch_down: root.manager.current = 'reheat_screen'
+
+        CleanWidgetSocket:
+            id: cleanwidgetsocket
+            size: 100,100
+            on_touch_down: root.manager.current = 'clean_screen'
+
+        TasteWidgetSocket:
+            id: tastewidgetsocket
+            size: 100,100
+            on_touch_down: root.manager.current = 'taste_screen'
+
+        PowerWidgetSocket:
+            id: powerwidgetsocket
+            size: 100,100
+            on_touch_down: root.manager.current = 'power_screen'
+
+
+
+

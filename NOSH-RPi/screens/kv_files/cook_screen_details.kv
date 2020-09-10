@@ -1,4 +1,17 @@
+#:include widgets/kv_files/my_card_details.kv
+
+
+<MyImageDetailsWidget>
+    size: 300,100
+    padding: dp(40)
+    orientation: 'vertical'
+
+<MyCarousel>:
+
 <CookScreen>:
     name: 'cook_screen'
-    MDRectangleFlatButton:
-        text: 'cook'
+
+    MyCarousel:
+        id: my_carousel
+        loop: True
+

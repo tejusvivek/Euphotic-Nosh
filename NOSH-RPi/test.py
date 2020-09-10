@@ -1,95 +1,54 @@
 from kivy.lang import Builder
-from kivy.uix.boxlayout import BoxLayout
-from kivy.animation import Animation
+from kivy.uix.floatlayout import FloatLayout
 
 from kivymd.app import MDApp
-from kivymd.uix.expansionpanel import MDExpansionPanelOneLine, MDExpansionPanel
-from kivymd import images_path
+from kivymd.uix.tab import MDTabsBase
+from kivymd.icon_definitions import md_icons
 
-root_kv = """
-#:import get_hex_from_color kivy.utils.get_hex_from_color
-
-
-<Content>:
+KV = '''
+BoxLayout:
     orientation: "vertical"
-    padding: dp(10)
-    spacing: dp(10)
-    size_hint_y: None
-    height: self.minimum_height
 
-    TwoLineIconListItem:
-        text: "(050)-123-45-67"
-        secondary_text:
-            "Mobile" 
+    MDToolbar:
+        title: "Example Tabs"
 
-        IconLeftWidget:
-            icon: "phone"
-
-    TwoLineIconListItem:
-        text: "kivydevelopment@gmail.com"
-        secondary_text:
-            "Work"
-
-        IconLeftWidget:
-            icon: "email"
+    MDTabs:
+        id: tabs
 
 
-Screen:
+<Tab>:
 
-    MDCard:
-        id: card
-        orientation: "vertical"
-        size_hint: .6, None
-        height: self.minimum_height
+    MDIconButton:
+        id: icon
+        icon: "arrow-right"
+        user_font_size: "48sp"
         pos_hint: {"center_x": .5, "center_y": .5}
-
-        BoxLayout:
-            id: box
-            size_hint_y: None
-            height: dp(150)
-
-            FitImage:
-                source: "demos/kitchen_sink/assets/guitar-1139397_1280.png"
-"""
+        on_release: app.switch_tab()
+'''
 
 
-class Content(BoxLayout):
-    pass
+class Tab(FloatLayout, MDTabsBase):
+    '''Class implementing content for a tab.'''
 
 
-class MainApp(MDApp):
-    def __init__(self, **kwargs):
-        self.title = "Expansion Panel with Card"
-        super().__init__(**kwargs)
+class Example(MDApp):
+    icons = list(md_icons.keys())[15:30]
 
     def build(self):
-        self.root = Builder.load_string(root_kv)
+        self.iter_list = iter(list(self.icons))
+        return Builder.load_string(KV)
 
     def on_start(self):
-        content = Content()
-        self.root.ids.card.add_widget(
-            MDExpansionPanel(
-                on_open=self.panel_open,
-                on_close=self.panel_close,
-                icon="kivymd_logo.png",
-                content=content,
-                panel_cls=MDExpansionPanelOneLine(text="KivyMD v.0.103.0"),
-            )
-        )
+        for name_tab in list(self.icons):
+            self.root.ids.tabs.add_widget(Tab(text=name_tab))
 
-    def panel_open(self, *args):
-        Animation(
-            height=(self.root.ids.box.height + self.root.ids.content.height)
-                   - self.theme_cls.standard_increment * 2,
-            d=0.2,
-        ).start(self.root.ids.box)
+    def switch_tab(self):
+        '''Switching the tab by name.'''
 
-    def panel_close(self, *args):
-        Animation(
-            height=(self.root.ids.box.height - self.root.ids.content.height)
-                   + self.theme_cls.standard_increment * 2,
-            d=0.2,
-        ).start(self.root.ids.box)
+        try:
+            self.root.ids.tabs.switch_tab(next(self.iter_list))
+        except StopIteration:
+            pass
 
 
-MainApp().run()
+Example().run()

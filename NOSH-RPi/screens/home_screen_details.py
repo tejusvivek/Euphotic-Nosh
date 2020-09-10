@@ -1,7 +1,31 @@
-from kivymd.uix.screen import MDScreen
+from kivymd.uix.screen import MDScreen, Screen
 from kivy.uix.gridlayout import GridLayout
 
-from widgets import *
+from widgets import MyCardWidget
+
+from kivy.uix.button import ButtonBehavior
+from kivymd.uix.behaviors import TouchBehavior
+from kivymd.uix.boxlayout import MDBoxLayout
+
+
+class CookWidgetSocket(MDBoxLayout):
+    pass
+
+
+class ReheatWidgetSocket(MDBoxLayout):
+    pass
+
+
+class CleanWidgetSocket(MDBoxLayout):
+    pass
+
+
+class TasteWidgetSocket(MDBoxLayout):
+    pass
+
+
+class PowerWidgetSocket(MDBoxLayout):
+    pass
 
 
 class HomeScreen(MDScreen):
@@ -9,33 +33,28 @@ class HomeScreen(MDScreen):
     def __init__(self, **kwargs):
         super(HomeScreen, self).__init__(**kwargs)
 
-        layout = GridLayout(rows=2, cols=3)
-        self.add_widget(layout)
+        layout = GridLayout(cols=3)
 
-        cook_widget = MyCardWidget(header_text="Cook",
-                                   content_text="Cooking Page",
-                                   image_path="resources/microwave-oven.png")
+        self.cook_widget = MyCardWidget(header_text="Cook",
+                                        image_path="resources/boiling.png")
 
-        reheat_widget = MyCardWidget(header_text="Reheat",
-                                   content_text="Reheat Page",
-                                   image_path="resources/Reheat.png")
+        self.reheat_widget = MyCardWidget(header_text="Reheat",
+                                          image_path="resources/fried.png")
 
-        clean_widget = MyCardWidget(header_text="Clean",
-                                   content_text="Cleaning Page",
-                                   image_path="resources/Clean.png")
+        self.clean_widget = MyCardWidget(header_text="Clean",
+                                         image_path="resources/spray.png")
 
-        taste_widget = MyCardWidget(header_text="Taste",
-                                     content_text="Taste Page",
-                                     image_path="resources/Taste Configuration.png")
+        self.taste_widget = MyCardWidget(header_text="Taste",
+                                         image_path="resources/gears.png")
 
-        power_widget = MyCardWidget(header_text="Power",
-                                     content_text="Power Page",
-                                     image_path="resources/Power Off.png")
+        self.power_widget = MyCardWidget(header_text="Power",
+                                         image_path="resources/power-off.png")
 
-        layout.add_widget(cook_widget)
-        layout.add_widget(reheat_widget)
-        layout.add_widget(clean_widget)
-        layout.add_widget(taste_widget)
-        layout.add_widget(power_widget)
+    def on_kv_post(self, base_widget):
 
+        self.ids.cookwidgetsocket.add_widget(self.cook_widget)
+        self.ids.reheatwidgetsocket.add_widget(self.reheat_widget)
+        self.ids.cleanwidgetsocket.add_widget(self.clean_widget)
+        self.ids.tastewidgetsocket.add_widget(self.taste_widget)
+        self.ids.powerwidgetsocket.add_widget(self.power_widget)
 

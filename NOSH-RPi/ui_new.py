@@ -1,3 +1,8 @@
+from kivy.config import Config
+Config.set('graphics', 'width', '640')
+Config.set('graphics', 'height', '480')
+Config.set('graphics', 'resizable', '0')
+
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
@@ -6,6 +11,9 @@ from kivymd.uix.button import MDFloatingActionButtonSpeedDial, MDIconButton, MDR
 
 from screens import *
 from widgets import *
+
+
+
 
 
 class TestApp(MDApp):
