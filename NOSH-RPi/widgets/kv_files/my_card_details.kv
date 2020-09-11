@@ -1,18 +1,3 @@
-<MyCardWidget>
-    id: my_widget
-    orientation: 'lr-tb'
-    cols: 1
-    padding: dp(2)
-    height: self.minimum_height
-
-<MyImageWidget>
-    size_hint: 1.0, 1.0
-    pos_hint: {"center_x": 0.5, "center_y": 0.5}
-
-<MyCardContent>
-    orientation: "horizontal"
-    size_hint_y: None
-
 <MyCard>
     id: card
     orientation: "vertical"
@@ -23,6 +8,16 @@
     BoxLayout:
         id: box
         pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+
+<MyImageWidget>
+    size_hint: 1.0, 1.0
+    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+<MyCardContent>
+    orientation: "horizontal"
+    size_hint_y: None
+
 
 
 

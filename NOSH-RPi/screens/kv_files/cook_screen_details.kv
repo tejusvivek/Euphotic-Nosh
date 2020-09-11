@@ -1,10 +1,12 @@
 #:include widgets/kv_files/my_card_details.kv
 
+<MyImageDetailsCard>
+    padding: dp(5)
+
 
 <MyImageDetailsWidget>
-    size: 300,100
-    padding: dp(40)
-    orientation: 'vertical'
+    orientation: 'lr-tb'
+    size_hint: 1.0, 1.0
 
 <MyCarousel>:
 
@@ -14,4 +16,6 @@
     MyCarousel:
         id: my_carousel
         loop: True
+
+
 

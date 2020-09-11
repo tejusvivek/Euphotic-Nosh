@@ -56,7 +56,7 @@ FOOD_PAGE_NUMBER = 3
 SETUP_PAGE_NUMBER = 4
 timed_out_page = 0
 idle_time = 0
-IDLE_THRESHOLD = 10
+IDLE_THRESHOLD = 20
 idle_status = 0
 popup_status = 0
 final_page_status = 0
@@ -83,7 +83,7 @@ clkLastState = GPIO.input(clk)
 popup_title = ''
 
 '''Initial Page Number'''
-page_number = CLOCK_PAGE_NUMBER
+page_number = MAIN_APP_PAGE_NUMBER
 
 commands = {'ingredient_dispense': 0x01, 'ingredient_rest': 0x02, 'spice_dispense': 0x03, 'spice_rest': 0x04,
             'water_dispense': 0x05, 'oil_dispense': 0x06, 'stove_on': 0x07, 'stove_off': 0x08, 'stove_level': 0x09,
@@ -311,20 +311,57 @@ def home_screen_timer(*args):
 '''----------------------------------------USER INTERFACE ELEMENTS DEFINITION------------------------------------------'''
 '''Various Buttons in the User Interface'''
 
+image_size = (200,290)
+image_pos_initial = (140,100)
+button_size = (210,300)
+button_pos_initial = (135,95)
+
 '''Cook Button'''
-cook_img = Image(source='cook_button.png', allow_stretch=True, keep_ratio=False, pos=(140, 100), opacity=1, width=200,
-                 height=290)
-cook_button = Button(height=300, width=210, text='COOK', halign='left', valign='bottom', text_size=(50, 160),
-                     pos=(135, 95), on_press=cook_callback, opacity=1, border=(10, 10, 10, 10), background_normal='',
+cook_img = Image(source='resources/cook_button.png', allow_stretch=True, keep_ratio=False, pos=image_pos_initial, opacity=1, size = image_size)
+cook_button = Button(size = button_size, text='COOKING', halign='left', valign='bottom', text_size=(50, 160),
+                     pos=button_pos_initial, on_press=cook_callback, opacity=1, border=(10, 10, 10, 10), background_normal='',
                      background_color=(0, 0, 0, 1))
 cook_button.add_widget(cook_img)
+
 '''Setup Button'''
-setup_img = Image(source='setup_button.png', allow_stretch=True, keep_ratio=False, pos=(450, 100), opacity=1, width=200,
-                  height=290)
-setup_button = Button(height=300, width=210, text='SETUP', halign='left', valign='bottom', border=(10, 10, 10, 10),
+setup_img = Image(source='resources/setup_button.png', allow_stretch=True, keep_ratio=False, pos=(450, 100), opacity=1, size = image_size)
+setup_button = Button(size = button_size, text='SETUP', halign='left', valign='bottom', border=(10, 10, 10, 10),
                       text_size=(50, 160), pos=(445, 95), size_hint=(.8, .6), on_press=setup_callback, opacity=1,
                       background_normal='', background_color=(0, 0, 0, 1))
 setup_button.add_widget(setup_img)
+
+'''Reheat Button'''
+reheat_img = Image(source='cook_button.png', allow_stretch=True, keep_ratio=False, pos=(140, 100), opacity=1, width=200,
+                   height=290)
+reheat_button = Button(height=300, width=210, text='COOK', halign='left', valign='bottom', text_size=(50, 160),
+                       pos=(135, 95), on_press=cook_callback, opacity=1, border=(10, 10, 10, 10), background_normal='',
+                       background_color=(0, 0, 0, 1))
+reheat_button.add_widget(reheat_img)
+
+'''Clean Button'''
+clean_img = Image(source='setup_button.png', allow_stretch=True, keep_ratio=False, pos=(450, 100), opacity=1, width=200,
+                  height=290)
+clean_button = Button(height=300, width=210, text='SETUP', halign='left', valign='bottom', border=(10, 10, 10, 10),
+                      text_size=(50, 160), pos=(445, 95), size_hint=(.8, .6), on_press=setup_callback, opacity=1,
+                      background_normal='', background_color=(0, 0, 0, 1))
+clean_button.add_widget(clean_img)
+
+'''Taste Button'''
+taste_img = Image(source='resources/cook_button.png', allow_stretch=True, keep_ratio=False, pos=(140, 100), opacity=1, width=200,
+                  height=290)
+taste_button = Button(height=300, width=210, text='COOK', halign='left', valign='bottom', text_size=(50, 160),
+                      pos=(135, 95), on_press=cook_callback, opacity=1, border=(10, 10, 10, 10), background_normal='',
+                      background_color=(0, 0, 0, 1))
+taste_button.add_widget(taste_img)
+
+'''power Button'''
+
+power_img = Image(source='resources/setup_button.png', allow_stretch=True, keep_ratio=False, pos=(450, 100), opacity=1, width=200,
+                  height=290)
+power_button = Button(height=300, width=210, text='SETUP', halign='left', valign='bottom', border=(10, 10, 10, 10),
+                      text_size=(50, 160), pos=(445, 95), size_hint=(.8, .6), on_press=setup_callback, opacity=1,
+                      background_normal='', background_color=(0, 0, 0, 1))
+power_button.add_widget(power_img)
 
 '''Various Pages in User Interface'''
 
@@ -340,6 +377,10 @@ main_page = Widget()
 '''Adding Widgets to main page'''
 main_page.add_widget(cook_button)
 main_page.add_widget(setup_button)
+# main_page.add_widget(reheat_button)
+# main_page.add_widget(taste_button)
+# main_page.add_widget(clean_button)
+# main_page.add_widget(power_button)
 
 '''Inside Setup Page'''
 setup_label = Label(text='STOVE SETUP', font_size='50sp', pos=(180, 380))
@@ -355,25 +396,25 @@ final_page.add_widget(home_button)
 
 '''Various dishes'''
 '''DISH 1'''
-cook_img1 = Image(source='carrot_beans.png', allow_stretch=True, keep_ratio=False, pos=(95, 65), opacity=1, width=600,
+cook_img1 = Image(source='resources/carrot_beans.png', allow_stretch=True, keep_ratio=False, pos=(95, 65), opacity=1, width=600,
                   height=350)
 cook_page1 = Button(font_size='5sp', text='CARROT BEANS', opacity=1, text_size=(1, 1), height=30, width=30,
                     on_press=cook_inside_page_callback, background_normal='', background_color=(0, 0, 0, 1))
 cook_page1.add_widget(cook_img1)
 '''DISH 2'''
-cook_img2 = Image(source='channa_masala.png', allow_stretch=True, keep_ratio=False, pos=(95, 65), opacity=1, width=600,
+cook_img2 = Image(source='resources/channa_masala.png', allow_stretch=True, keep_ratio=False, pos=(95, 65), opacity=1, width=600,
                   height=350)
 cook_page2 = Button(font_size='30sp', text='CHANA MASALA', halign='left', valign='bottom', text_size=(150, 320),
                     on_press=cook_inside_page_callback, background_normal='', background_color=(0, 0, 0, 1))
 cook_page2.add_widget(cook_img2)
 '''DISH 3'''
-cook_img3 = Image(source='bhindi_curry.png', allow_stretch=True, keep_ratio=False, pos=(95, 65), opacity=1, width=600,
+cook_img3 = Image(source='resources/bhindi_curry.png', allow_stretch=True, keep_ratio=False, pos=(95, 65), opacity=1, width=600,
                   height=350)
 cook_page3 = Button(font_size='30sp', text='BHINDI CURRY', halign='left', valign='bottom', text_size=(150, 320),
                     on_press=cook_inside_page_callback, background_normal='', background_color=(0, 0, 0, 1))
 cook_page3.add_widget(cook_img3)
 '''DISH 4'''
-cook_img4 = Image(source='upma.png', allow_stretch=True, keep_ratio=False, pos=(95, 65), opacity=1, width=600,
+cook_img4 = Image(source='resources/upma.png', allow_stretch=True, keep_ratio=False, pos=(95, 65), opacity=1, width=600,
                   height=350)
 cook_page4 = Button(font_size='30sp', text='UPMA', halign='left', valign='bottom', text_size=(150, 320),
                     on_press=cook_inside_page_callback, background_normal='', background_color=(0, 0, 0, 1))
@@ -528,13 +569,13 @@ def rotary_fn():
         if clkState != clkLastState:
             if dtState != clkState:
                 count = count + 1
-                if (count == 15):
+                if (count == 5):
                     count = 0
                     # print(count)
                     next_fn()
             else:
                 count = count - 1
-                if (count == -15):
+                if (count == -5):
                     count = 0
                     # print(count)
                     prev_fn()

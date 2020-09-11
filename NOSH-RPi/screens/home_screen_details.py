@@ -1,14 +1,11 @@
-from kivymd.uix.screen import MDScreen, Screen
+from kivymd.uix.screen import MDScreen
 from kivy.uix.gridlayout import GridLayout
-
-from widgets import MyCardWidget
-
-from kivy.uix.button import ButtonBehavior
-from kivymd.uix.behaviors import TouchBehavior
+from widgets import MyCard
 from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.behaviors import *
 
 
-class CookWidgetSocket(MDBoxLayout):
+class CookWidgetSocket(MDBoxLayout, FocusBehavior):
     pass
 
 
@@ -35,26 +32,24 @@ class HomeScreen(MDScreen):
 
         layout = GridLayout(cols=3)
 
-        self.cook_widget = MyCardWidget(header_text="Cook",
-                                        image_path="resources/boiling.png")
+        self.cook_widget = MyCard(header_text="Cook",
+                                  image_source="resources/boiling.png")
 
-        self.reheat_widget = MyCardWidget(header_text="Reheat",
-                                          image_path="resources/fried.png")
+        self.reheat_widget = MyCard(header_text="Reheat",
+                                    image_source="resources/fried.png")
 
-        self.clean_widget = MyCardWidget(header_text="Clean",
-                                         image_path="resources/spray.png")
+        self.clean_widget = MyCard(header_text="Clean",
+                                   image_source="resources/spray.png")
 
-        self.taste_widget = MyCardWidget(header_text="Taste",
-                                         image_path="resources/gears.png")
+        self.taste_widget = MyCard(header_text="Taste",
+                                   image_source="resources/gears.png")
 
-        self.power_widget = MyCardWidget(header_text="Power",
-                                         image_path="resources/power-off.png")
+        self.power_widget = MyCard(header_text="Power",
+                                   image_source="resources/power-off.png")
 
     def on_kv_post(self, base_widget):
-
         self.ids.cookwidgetsocket.add_widget(self.cook_widget)
         self.ids.reheatwidgetsocket.add_widget(self.reheat_widget)
         self.ids.cleanwidgetsocket.add_widget(self.clean_widget)
         self.ids.tastewidgetsocket.add_widget(self.taste_widget)
         self.ids.powerwidgetsocket.add_widget(self.power_widget)
-
