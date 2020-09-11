@@ -135,8 +135,8 @@ def cook_fn():
 	carousel.add_widget(cook_page2)
 	carousel.add_widget(cook_page3)
 	carousel.add_widget(cook_page4)
+    	carousel.add_widget(cook_page5)
 	#carousel.add_widget(cook_timer_label)
-	#carousel.add_widget(cook_page5)
 	page_number=FOOD_PAGE_NUMBER
 	page_number_in_cook=1
 	idle_time=0
@@ -204,7 +204,7 @@ def popup_callback(instance):
 	carousel.remove_widget(cook_page2)
 	carousel.remove_widget(cook_page3)
 	carousel.remove_widget(cook_page4)
-	#carousel.remove_widget(cook_page5)
+	carousel.remove_widget(cook_page5)
 	food_selected=instance
 	print('Cooking ', food_selected)
 	final_page.text='Cooking '+food_selected
@@ -236,7 +236,7 @@ def screen_maintainer():
             carousel.remove_widget(cook_page2)
             carousel.remove_widget(cook_page3)
             carousel.remove_widget(cook_page4)
-            #carousel.remove_widget(cook_page5)
+            carousel.remove_widget(cook_page5)
         carousel.remove_widget(setup_page)
         popup_status=0
         print(time_text)
@@ -332,6 +332,10 @@ cook_page3.add_widget(cook_img3)
 cook_img4 = Image(source ='upma.png',allow_stretch=True,keep_ratio=False,pos=(95,65),opacity=1,width=600,height=350)
 cook_page4 = Button(font_size='30sp',text='UPMA',halign='left',valign='bottom',text_size=(150,320), on_press=cook_inside_page_callback,background_normal='',background_color=(0, 0, 0, 1))
 cook_page4.add_widget(cook_img4)
+'''DISH 5'''
+cook_img5 = Image(source ='pasta.png',allow_stretch=True,keep_ratio=False,pos=(95,65),opacity=1,width=600,height=350)
+cook_page5 = Button(font_size='30sp',text='PASTA',halign='left',valign='bottom',text_size=(150,320), on_press=cook_inside_page_callback,background_normal='',background_color=(0, 0, 0, 1))
+cook_page5.add_widget(cook_img5)
 
 '''-------------------------------------------UI END----------------------------------------------'''
 
@@ -372,7 +376,7 @@ def prev_fn():
 	idle_time=0
 
 '''Switcher function for selecting the dishes in cook_page'''
-switcher={-1:3,-2:2,-3:1,1:1,2:2,3:3,0:4}
+switcher={-1:4,-2:3,-3:2,-4:1,1:1,2:2,3:3,4:4,0:5}
 
 def switch(page_number_in_cook):
 	return switcher.get(page_number_in_cook)
@@ -406,8 +410,8 @@ def push_button_callback(channel):
             cook_inside_page_callback(cook_page3.text)
         elif(a==4):
             cook_inside_page_callback(cook_page4.text)
-		#elif(a==5):
-            #cook_inside_page_callback(cook_page5.text)
+        elif(a==5):
+            cook_inside_page_callback(cook_page5.text)
     
     elif  (popup_status==1)&(final_page_status==0):
 		#print(popup_status)
@@ -424,9 +428,9 @@ def push_button_callback(channel):
         elif(b==4):
             popup_callback(cook_page4.text)
             final_page_status=1
-        #elif(b==5):
-            #popup_callback(cook_page5.text)
-            #final_page_status=1
+        elif(b==5):
+            popup_callback(cook_page5.text)
+            final_page_status=1
     
     elif(final_page_status==1)&(popup_status==0):
         home_callback()
