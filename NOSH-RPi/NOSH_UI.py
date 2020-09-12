@@ -56,7 +56,7 @@ FOOD_PAGE_NUMBER = 3
 SETUP_PAGE_NUMBER = 4
 timed_out_page = 0
 idle_time = 0
-IDLE_THRESHOLD = 20
+IDLE_THRESHOLD = 10
 idle_status = 0
 popup_status = 0
 final_page_status = 0
@@ -83,7 +83,7 @@ clkLastState = GPIO.input(clk)
 popup_title = ''
 
 '''Initial Page Number'''
-page_number = MAIN_APP_PAGE_NUMBER
+page_number = CLOCK_PAGE_NUMBER
 
 commands = {'ingredient_dispense': 0x01, 'ingredient_rest': 0x02, 'spice_dispense': 0x03, 'spice_rest': 0x04,
             'water_dispense': 0x05, 'oil_dispense': 0x06, 'stove_on': 0x07, 'stove_off': 0x08, 'stove_level': 0x09,
@@ -139,8 +139,8 @@ def cook_fn():
     carousel.add_widget(cook_page2)
     carousel.add_widget(cook_page3)
     carousel.add_widget(cook_page4)
+    carousel.add_widget(cook_page5)
     # carousel.add_widget(cook_timer_label)
-    # carousel.add_widget(cook_page5)
     page_number = FOOD_PAGE_NUMBER
     page_number_in_cook = 1
     idle_time = 0
@@ -228,7 +228,7 @@ def popup_callback(instance):
     carousel.remove_widget(cook_page2)
     carousel.remove_widget(cook_page3)
     carousel.remove_widget(cook_page4)
-    # carousel.remove_widget(cook_page5)
+    carousel.remove_widget(cook_page5)
     food_selected = instance
     print('Cooking ', food_selected)
     final_page.text = 'Cooking ' + food_selected
@@ -262,14 +262,14 @@ def screen_maintainer():
             carousel.remove_widget(cook_page2)
             carousel.remove_widget(cook_page3)
             carousel.remove_widget(cook_page4)
-        # carousel.remove_widget(cook_page5)
+            carousel.remove_widget(cook_page5)
         carousel.remove_widget(setup_page)
         popup_status = 0
         print(time_text)
         # carousel.remove_widget(timer_label)
         timer_label.text = time_text
         carousel.add_widget(timer_label)
-    # popup.dismiss()
+        # popup.dismiss()
     elif page_number == MAIN_APP_PAGE_NUMBER:
         carousel.remove_widget(timer_label)
         carousel.add_widget(main_page)
@@ -316,22 +316,24 @@ image_pos_initial = (140,100)
 button_size = (210,300)
 button_pos_initial = (135,95)
 
+
 '''Cook Button'''
-cook_img = Image(source='resources/cook_button.png', allow_stretch=True, keep_ratio=False, pos=image_pos_initial, opacity=1, size = image_size)
-cook_button = Button(size = button_size, text='COOKING', halign='left', valign='bottom', text_size=(50, 160),
-                     pos=button_pos_initial, on_press=cook_callback, opacity=1, border=(10, 10, 10, 10), background_normal='',
+cook_img = Image(source='resources/cook_button.png', allow_stretch=True, keep_ratio=False, pos=(140, 100), opacity=1, width=200,
+                 height=290)
+cook_button = Button(height=300, width=210, text='COOK', halign='left', valign='bottom', text_size=(50, 160),
+                     pos=(135, 95), on_press=cook_callback, opacity=1, border=(10, 10, 10, 10), background_normal='',
                      background_color=(0, 0, 0, 1))
 cook_button.add_widget(cook_img)
-
 '''Setup Button'''
-setup_img = Image(source='resources/setup_button.png', allow_stretch=True, keep_ratio=False, pos=(450, 100), opacity=1, size = image_size)
-setup_button = Button(size = button_size, text='SETUP', halign='left', valign='bottom', border=(10, 10, 10, 10),
+setup_img = Image(source='resources/setup_button.png', allow_stretch=True, keep_ratio=False, pos=(450, 100), opacity=1, width=200,
+                  height=290)
+setup_button = Button(height=300, width=210, text='SETUP', halign='left', valign='bottom', border=(10, 10, 10, 10),
                       text_size=(50, 160), pos=(445, 95), size_hint=(.8, .6), on_press=setup_callback, opacity=1,
                       background_normal='', background_color=(0, 0, 0, 1))
 setup_button.add_widget(setup_img)
 
 '''Reheat Button'''
-reheat_img = Image(source='cook_button.png', allow_stretch=True, keep_ratio=False, pos=(140, 100), opacity=1, width=200,
+reheat_img = Image(source='resources/cook_button.png', allow_stretch=True, keep_ratio=False, pos=(140, 100), opacity=1, width=200,
                    height=290)
 reheat_button = Button(height=300, width=210, text='COOK', halign='left', valign='bottom', text_size=(50, 160),
                        pos=(135, 95), on_press=cook_callback, opacity=1, border=(10, 10, 10, 10), background_normal='',
@@ -339,7 +341,7 @@ reheat_button = Button(height=300, width=210, text='COOK', halign='left', valign
 reheat_button.add_widget(reheat_img)
 
 '''Clean Button'''
-clean_img = Image(source='setup_button.png', allow_stretch=True, keep_ratio=False, pos=(450, 100), opacity=1, width=200,
+clean_img = Image(source='resources/setup_button.png', allow_stretch=True, keep_ratio=False, pos=(450, 100), opacity=1, width=200,
                   height=290)
 clean_button = Button(height=300, width=210, text='SETUP', halign='left', valign='bottom', border=(10, 10, 10, 10),
                       text_size=(50, 160), pos=(445, 95), size_hint=(.8, .6), on_press=setup_callback, opacity=1,
@@ -377,10 +379,6 @@ main_page = Widget()
 '''Adding Widgets to main page'''
 main_page.add_widget(cook_button)
 main_page.add_widget(setup_button)
-# main_page.add_widget(reheat_button)
-# main_page.add_widget(taste_button)
-# main_page.add_widget(clean_button)
-# main_page.add_widget(power_button)
 
 '''Inside Setup Page'''
 setup_label = Label(text='STOVE SETUP', font_size='50sp', pos=(180, 380))
@@ -408,9 +406,9 @@ cook_page2 = Button(font_size='30sp', text='CHANA MASALA', halign='left', valign
                     on_press=cook_inside_page_callback, background_normal='', background_color=(0, 0, 0, 1))
 cook_page2.add_widget(cook_img2)
 '''DISH 3'''
-cook_img3 = Image(source='resources/bhindi_curry.png', allow_stretch=True, keep_ratio=False, pos=(95, 65), opacity=1, width=600,
+cook_img3 = Image(source='resources/pasta.png', allow_stretch=True, keep_ratio=False, pos=(95, 65), opacity=1, width=600,
                   height=350)
-cook_page3 = Button(font_size='30sp', text='BHINDI CURRY', halign='left', valign='bottom', text_size=(150, 320),
+cook_page3 = Button(font_size='30sp', text='PASTA', halign='left', valign='bottom', text_size=(150, 320),
                     on_press=cook_inside_page_callback, background_normal='', background_color=(0, 0, 0, 1))
 cook_page3.add_widget(cook_img3)
 '''DISH 4'''
@@ -419,6 +417,12 @@ cook_img4 = Image(source='resources/upma.png', allow_stretch=True, keep_ratio=Fa
 cook_page4 = Button(font_size='30sp', text='UPMA', halign='left', valign='bottom', text_size=(150, 320),
                     on_press=cook_inside_page_callback, background_normal='', background_color=(0, 0, 0, 1))
 cook_page4.add_widget(cook_img4)
+'''DISH 5'''
+cook_img5 = Image(source='resources/pasta.png', allow_stretch=True, keep_ratio=False, pos=(95, 65), opacity=1, width=600,
+                  height=350)
+cook_page5 = Button(font_size='30sp', text='PASTA', halign='left', valign='bottom', text_size=(150, 320),
+                    on_press=cook_inside_page_callback, background_normal='', background_color=(0, 0, 0, 1))
+cook_page5.add_widget(cook_img5)
 
 '''-------------------------------------------UI END----------------------------------------------'''
 
@@ -464,7 +468,7 @@ def prev_fn():
 
 
 '''Switcher function for selecting the dishes in cook_page'''
-switcher = {-1: 3, -2: 2, -3: 1, 1: 1, 2: 2, 3: 3, 0: 4}
+switcher = {-1: 4, -2: 3, -3: 2, -4: 1, 1: 1, 2: 2, 3: 3, 4: 4, 0: 5}
 
 
 def switch(page_number_in_cook):
@@ -503,8 +507,8 @@ def push_button_callback(channel):
             cook_inside_page_callback(cook_page3.text)
         elif (a == 4):
             cook_inside_page_callback(cook_page4.text)
-    # elif(a==5):
-    # cook_inside_page_callback(cook_page5.text)
+        elif (a == 5):
+            cook_inside_page_callback(cook_page5.text)
 
     elif (popup_status == 1) & (final_page_status == 0):
         # print(popup_status)
@@ -521,9 +525,9 @@ def push_button_callback(channel):
         elif (b == 4):
             popup_callback(cook_page4.text)
             final_page_status = 1
-        # elif(b==5):
-        # popup_callback(cook_page5.text)
-        # final_page_status=1
+        elif (b == 5):
+            popup_callback(cook_page5.text)
+            final_page_status = 1
 
     elif (final_page_status == 1) & (popup_status == 0):
         home_callback()
@@ -622,3 +626,7 @@ class Nosh_UI(App, Widget):
 
 if __name__ == "__main__":
     Nosh_UI().run()
+
+
+
+
