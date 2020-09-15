@@ -19,23 +19,31 @@ from kivymd.uix.button import ButtonBehavior
 
 
 class MyCard(MDCard):
-    def __init__(self, header_text, image_source, **kwargs):
+    def __init__(self, header_text, image_source, alt_image_source, **kwargs):
         super().__init__(**kwargs)
         self.id = 'card'
+        self.image_source = image_source
+        self.alt_image_source = alt_image_source
+
         self.expansion_panel_widget = MyExpansionPanel(header_text=header_text)
-        self.image_widget = MyImageWidget(image_path=image_source)
+        self.image_widget = MyImageWidget(image_path=self.image_source)
         self.ids.box.add_widget(self.image_widget)
 
         self.add_widget(self.expansion_panel_widget)
 
     def on_enter(self):
-        self.expansion_panel_widget.panel_open()
-        self.image_widget.shrink_widget()
-        print(self.hovered)
+        # self.expansion_panel_widget.panel_open()
+        # self.image_widget.shrink_widget()
+        self.ids.box.remove_widget(self.image_widget)
+        self.image_widget = MyImageWidget(image_path=self.alt_image_source)
+        self.ids.box.add_widget(self.image_widget)
 
     def on_leave(self):
-        self.expansion_panel_widget.panel_close()
-        self.image_widget.grow_widget()
+        # self.expansion_panel_widget.panel_close()
+        # self.image_widget.grow_widget()
+        self.ids.box.remove_widget(self.image_widget)
+        self.image_widget = MyImageWidget(image_path=self.image_source)
+        self.ids.box.add_widget(self.image_widget)
 
 
 class MyImageWidget(FitImage, MagicBehavior):

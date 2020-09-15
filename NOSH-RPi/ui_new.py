@@ -32,13 +32,14 @@ class NewApp(MDApp):
         self.screenmanager = self.root
         print(self.screenmanager.screens)
 
+        for screens in self.screenmanager.screens:
+            print(screens)
+
     def events(self, instance, keyboard, keycode, text, modifiers):
         '''Called when buttons are pressed on the mobile device.'''
 
         if keycode == 30:
             print("focus on cook screen")
-
-
 
 
         # print('The key', keycode, 'have been pressed')
