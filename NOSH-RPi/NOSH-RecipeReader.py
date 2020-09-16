@@ -56,8 +56,8 @@ vegBoxMapping = {}
 
 
 # address = 0x04
-def writeNumber(cmd, value):
-    bus.write_byte_data(micro_addr, commands[cmd], value)
+def writeNumber(command_name, value):
+    bus.write_byte_data(micro_addr, commands[command_name], value)
     time.sleep(3)
     # print arduino[arduinoId], "," , commands[cmd] , "," , value
     # bus.write_byte_data(address, 0, value)
@@ -122,8 +122,6 @@ def processLine(recipelinelist):
         # if(tempreading>=recipelinelist[1]):
         #   break
         print("Temperature heated till:" + str(recipelinelist[1]))
-
-
 
     elif (recipelinelist[0] == "spice"):
         if (recipelinelist[1] == "rest"):
